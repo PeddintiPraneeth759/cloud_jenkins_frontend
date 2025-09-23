@@ -26,10 +26,10 @@ const Login = () => {
     e.preventDefault();
 
     try {
-   const url =
+const url =
   currentState === "Login"
-    ? "http://localhost:9090/backendapp/api/auth/login"
-: "http://localhost:9090/backendapp/api/auth/register";
+    ? "http://localhost:9090/api/auth/login"
+    : "http://localhost:9090/api/auth/register";
 
 
 
