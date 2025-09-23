@@ -28,8 +28,8 @@ const Login = () => {
     try {
       const url =
         currentState === "Login"
-          ? "http://localhost:8081/api/auth/login"
-          : "http://localhost:8081/api/auth/register";
+          ? "http://localhost:9090/backendapp/api/auth/login"
+          : "http://localhost:9090/backendapp/api/auth/register";
 
       const bodyData =
         currentState === "Login"
