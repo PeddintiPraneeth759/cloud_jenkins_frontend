@@ -25,15 +25,15 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // ✅ Skip backend calls, just simulate success
     if (currentState === "Login") {
-      saveToken("dummy_token"); // optional dummy token
+      // ✅ Login flow
+      saveToken("dummy_token");
       alert("Login successful!");
       navigate("/profile");
     } else {
-      saveToken("dummy_token");
+      // ✅ Register flow (no token, no redirect)
       alert("Register successful!");
-      navigate("/profile");
+      // stays in Register mode, user can manually switch to Login if needed
     }
   };
 
