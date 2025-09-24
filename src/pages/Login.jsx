@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const { saveToken } = useContext(FoodContext);
   const navigate = useNavigate();
-  const API_BASE_URL = "http://localhost:9090";
 
   const [currentState, setCurrentState] = useState("Login");
   const [formData, setFormData] = useState({
@@ -23,48 +22,18 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    try {
-const url =
-  currentState === "Login"
-    ? `${API_BASE_URL}/api/auth/login`
-    : `${API_BASE_URL}/api/auth/register`;
 
-
-
-      const bodyData =
-        currentState === "Login"
-          ? { email: formData.email, password: formData.password }
-          : {
-              name: formData.name,
-              email: formData.email,
-              phoneNumber: formData.phoneNumber,
-              password: formData.password,
-            };
-
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(bodyData),
-      });
-
-      const data = await res.json();
-      console.log("API Response:", data);
-
-      if (data.token) {
-        saveToken(data.token); // Save token in context/localStorage
-        alert(
-          (currentState === "Login" ? "Login" : "Register") + " successful!"
-        );
-        navigate("/profile"); // redirect to profile page after login/register
-      } else {
-        alert(data.message || "Something went wrong!");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Server error");
+    // ✅ Skip backend calls, just simulate success
+    if (currentState === "Login") {
+      saveToken("dummy_token"); // optional dummy token
+      alert("Login successful!");
+      navigate("/profile");
+    } else {
+      saveToken("dummy_token");
+      alert("Register successful!");
+      navigate("/profile");
     }
   };
 
