@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const { saveToken } = useContext(FoodContext);
   const navigate = useNavigate();
+  const API_BASE_URL = "http://localhost:9090";
 
   const [currentState, setCurrentState] = useState("Login");
   const [formData, setFormData] = useState({
@@ -24,12 +25,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     try {
 const url =
   currentState === "Login"
-    ? "http://localhost:9090/api/auth/login"
-    : "http://localhost:9090/api/auth/register";
+    ? `${API_BASE_URL}/api/auth/login`
+    : `${API_BASE_URL}/api/auth/register`;
 
 
 
