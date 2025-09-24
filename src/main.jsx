@@ -7,7 +7,7 @@ import FoodContextProvider from "./context/FoodContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/frontend">
       <FoodContextProvider>
         <App />
       </FoodContextProvider>
