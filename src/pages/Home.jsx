@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
       <div className="w-full min-h-[calc(100vh-72px)] pt-5">
-        <p onClick={() => navigate("/foodwebsitechatbot")}>chabot Link</p>
+        <p onClick={() => navigate("/foodwebsitechatbot")}>Praneeth</p>
 
         <div className="flex flex-col lg:flex-row">
           <div className="flex flex-col gap-6 md:gap-10 lg:gap-16 pt-3 w-full lg:w-1/2">
